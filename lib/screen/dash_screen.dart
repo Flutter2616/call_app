@@ -28,7 +28,7 @@ class _DashscreenState extends State<Dashscreen> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
-          type: BottomNavigationBarType.fixed,elevation: 0,
+          type: BottomNavigationBarType.shifting,elevation: 0,
           iconSize: 30,
           currentIndex: i,
           onTap: (value) {

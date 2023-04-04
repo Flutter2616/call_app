@@ -124,7 +124,7 @@ class _ContactScreenState extends State<ContactScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: InkWell(onTap: () {
-        Navigator.pushNamed(context, 'profile',arguments: [c,index]).then((value) {
+        Navigator.pushNamed(context, 'profile',arguments: index).then((value) {
           setState(() {
 
           });
