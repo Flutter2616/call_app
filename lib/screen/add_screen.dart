@@ -30,9 +30,11 @@ class _AddscreenState extends State<Addscreen> {
               SizedBox(height: 30),
               Row(
                 children: [
-                  InkWell(onTap: () {
-                    Navigator.pop(context);
-                  },child: Icon(Icons.arrow_back,color: Colors.blue)),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(Icons.arrow_back, color: Colors.blue)),
                   SizedBox(width: 20),
                   Text(
                     "New Contact",
@@ -160,11 +162,22 @@ class _AddscreenState extends State<Addscreen> {
               ),
               SizedBox(height: 30),
               Center(
-                child: InkWell(onTap: () {
-                  ContactModel c=ContactModel(number: number.text,name: name.text,img: path);
+                child: InkWell(
+                  onTap: () {
+                    ContactModel c = ContactModel(
+                        number: number.text, name: name.text, img: path);
                     contactlist.add(c);
                     Navigator.pop(context);
-                },
+
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Add contact successfully",
+                          style: TextStyle(fontSize: 18, color: Colors.white)),
+                      // margin: EdgeInsets.all(10),
+                      backgroundColor: Colors.green.shade700,
+                      duration: Duration(seconds: 3),
+                      behavior: SnackBarBehavior.floating,
+                    ));
+                  },
                   child: Container(
                     height: 50,
                     width: 150,
@@ -174,7 +187,10 @@ class _AddscreenState extends State<Addscreen> {
                         borderRadius: BorderRadius.circular(15)),
                     child: Text(
                       "Add Contact",
-                      style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
                     ),
                   ),
                 ),

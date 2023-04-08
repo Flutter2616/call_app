@@ -203,6 +203,14 @@ class _ProfilescreenState extends State<Profilescreen> {
                     onTap: () {
                       contactlist.removeAt(i);
                       Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("Delete contact",
+                            style: TextStyle(fontSize: 20, color: Colors.white)),
+                        // margin: EdgeInsets.all(10),
+                        backgroundColor: Colors.red.shade700,
+                        duration: Duration(seconds: 3),
+                        behavior: SnackBarBehavior.floating,
+                      ));
                     },
                     child: box("Delete Contact")),
                 SizedBox(height: 25),
@@ -267,8 +275,19 @@ class _ProfilescreenState extends State<Profilescreen> {
               FloatingActionButton(onPressed: () {
                 setState(() {
                   contactlist[index]=ContactModel(name: name.text,number: number.text,img: editpath);
+
                 });
                 Navigator.pop(context);
+
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text("Update contact ",
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
+                  // margin: EdgeInsets.all(10),
+                  backgroundColor: Colors.green.shade700,
+                  duration: Duration(seconds: 3),
+                  behavior: SnackBarBehavior.floating,
+                ));
+
               },child: Icon(Icons.done,size: 30,color: Colors.white)),
             ],
           ),content: Padding(
